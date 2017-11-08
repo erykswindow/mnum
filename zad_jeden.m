@@ -1,4 +1,4 @@
-function chlodzenie_preta
+function zad_jeden
     h = 50;
     A = 0.0109;
     mb = 0.2;
@@ -15,7 +15,7 @@ end
 function [t, y] = func(h, A, mb, cb, mw, ic, ts)
     f1 = @(x) F1(x, h, A, mb, cb);
     f2 = @(x) F2(x, h, A, mw);
-    [t, y] = euler({f1, f2}, ts, ic);
+    [t, y] = euler_modified({f1, f2}, ts, ic);
 end
 
 function y = F1(y, h, A, m, c)
