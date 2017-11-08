@@ -28,23 +28,6 @@ function y = F2(y, h, A, m)
     y = (y(1) - y(2)) * beta;
 end
 
-function [t, y] = euler(func, tspan, x0)
-    count = 500;
-    t = linspace(tspan(1), tspan(2), count);
-    numberOfFunctions = size(func, 2);
-    y = zeros(numberOfFunctions, count);
-    for i = 1:numberOfFunctions
-        y(i, 1) = x0(i);
-    end
-    for i = 2:count
-        step = t(i) - t(i-1);
-        for j = 1:numberOfFunctions
-            stepValue = step * func{j}(y(1:numberOfFunctions, i-1));
-            y(j, i) = y(j, i - 1) + stepValue;
-        end
-    end
-end
-
 % model współczynnika pojemnosci cieplnej oleju chlodzacego
 function cw = fcw(T)
     Tid = [0, 55, 70, 100, 200, 400, 1000, 2000];
