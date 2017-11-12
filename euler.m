@@ -13,7 +13,7 @@ function [t, y] = euler(func, tspan, x0)
 %   y       - matrix of function values in
 %             values corresponding time
     
-    count = 500;
+    count = 200;
     t = linspace(tspan(1), tspan(2), count);
     numberOfFunctions = size(func, 2);
     y = zeros(numberOfFunctions, count);
