@@ -13,8 +13,7 @@ function yy = spline_interpolation(x, y, alpha, beta, xx)
 		c(2) - h/3 * alpha; 
 		c; 
 		c(size(c,1)-1) + (h/3 * beta)
-	]
-	pause
+	];
 	yy = zeros(1, size(xx,2));
 	for i = 1:size(xx,2)
 		yy(i) = interpolate(xx(i), c, a, h, n);
