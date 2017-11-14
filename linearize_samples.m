@@ -14,8 +14,10 @@ function [xx,yy] = linearize_samples(x,y,n)
 
     xx = linspace(min(x),max(x),n);
     yy = zeros(1,n);
+    x_1 = 1;
+    x_2 = 1;
     for i=1:n
-        [x_1, x_2] = find_range(x, xx(i));
+        [x_1, x_2] = find_range(x, xx(i), x_1);
         a = (y(x_1) - y(x_2))/(x(x_1) - x(x_2));
         b = y(x_2) - a * x(x_2);
         yy(i) = a * xx(i) + b;

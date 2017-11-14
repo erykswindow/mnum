@@ -5,7 +5,6 @@ function yy = spline_interpolation(x, y, alpha, beta, xx)
 	a = x(1);
 	b = x(n+1);
 	h = (b - a)/(n);
-
 	y(1) = y(1) + h/3 * alpha; y(n+1) = y(n+1) - h/3 * beta;
 
 	c = c_mat\y'; % c - coefficients

@@ -1,4 +1,4 @@
-function [x_1,x_2] = find_range(x, value)
+function [x_1,x_2] = find_range(x, value, estimated_start)
 % FIND_RANGE: Find range from x
 %	[x_1, x_2] = find_range(x, value)
 %	 `	finds the range from xs for value
@@ -9,7 +9,7 @@ function [x_1,x_2] = find_range(x, value)
 %	x_1 	- 	lower index
 %	x_2 	- 	upper index
 
-	for j=1:size(x,2)
+	for j=estimated_start:size(x,2)
 		x_1 = j;
 		x_2 = j+1;
 		if j + 1 >= size(x, 2)
