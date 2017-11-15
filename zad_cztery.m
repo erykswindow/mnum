@@ -34,7 +34,7 @@ function zad_cztery
     plot(Tid, cwd, 'g*', 'DisplayName', 'Original nodes')
     grid on
     legend('show')
-    title('Interpolacja danych pomiarowych zależności pojemności cieplnej oleju od jego temperatory')
+    title('Porównanie metod przybliżania zależności pojemności cieplnej oleju od jego temperatury')
 
     subplot(3,1,2)
     plot(xx, yy_2, 'b-o', 'DisplayName', 'Approximate m = 5')
@@ -44,11 +44,11 @@ function zad_cztery
     legend('show')
 
     subplot(3,1,3)
-    plot(xx, yy_3,'k', 'DisplayName', 'Spline interpolation')
+    plot(xx, yy_3,'k-o', 'DisplayName', 'Spline interpolation')
     hold on
     plot(Tid, cwd, 'g*', 'DisplayName', 'Original nodes')
-    plot(x, y, 'ro', 'DisplayName', '"New" nodes')
-    title('8 nowych węzłów')
+    plot(x, y, 'rx', 'DisplayName', '"New" nodes')
+    hold off
     grid on
     legend('show')
 
@@ -60,7 +60,7 @@ function zad_cztery
     mb = 0.2;
     cb = 0.22;
     mw  = 1.5;
-    tspan  = [0 0.4];
+    tspan  = [0 0.5];
     ic = [1200 65];
 
     calc_one = @(f, x, y) euler_modified(f,x,y);
@@ -69,11 +69,18 @@ function zad_cztery
     [t, y_2] = state(h, A, mb, cb, mw, ic, tspan, calc_two);
 
     count = size(y_1,2);
+    newAxis = [0 0.5 400 1200]
+
     figure(6)
-    hold off
-    plot(t, y_2(1,1:count), 'r', 'DisplayName', 'Euler')
-    hold on
-    plot(t, y_1(1,1:count), 'g', 'DisplayName', 'Euler Modified')
+    subplot(1,2,1)
+    plot(t, y_2(1,1:count), 'r-o', 'DisplayName', 'Euler')
+    axis(newAxis)
     legend('show')
-    hold off
+    grid on
+
+    subplot(1,2,2)
+    plot(t, y_1(1,1:count), 'g-o', 'DisplayName', 'Euler Modified')
+    axis(newAxis)
+    legend('show')
+    grid on
 end

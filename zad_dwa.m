@@ -9,7 +9,7 @@ function zad_dwa
 	mb = 0.2; 
 	mw = 2.5;
 	cb = 0.22;
-    tspan  = [0 1];
+    tspan  = [0 0.5];
     ic = [1200 65];
 
     calc = @(f, x, y) euler(f,x,y);
