@@ -1,4 +1,14 @@
  function c = c_matrix(s)
+ % c_matrix: generte c matrix for spine interpolation
+ %   c = c_matrix(s)
+ %      ` generates s x s matrix with 4 on diagonal
+ %        and sum of each row equal to 6
+ %       
+ % INPUTS:
+ %     s - size of the output coefficients matrix (s x s)
+ % OUTPUTS:
+ %     c - a matrix of coefficients
+ 
     c = diag(ones(1, s) * 4);
     for i = 1:size(c,1)
         for j = 1:size(c,2)

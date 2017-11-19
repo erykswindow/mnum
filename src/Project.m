@@ -1,4 +1,4 @@
- function project
+ function Project
     clear all
     close all
     hold off

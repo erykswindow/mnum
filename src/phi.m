@@ -1,4 +1,16 @@
 function y = phi(i, x, a, h)
+% Phi: a base function for third degree 
+%	   polynominal interpolation
+% 	y = phi(i, x, a, h)
+%	 ` calculate the value of base function
+% INPUTS:
+%	i - number of base function
+%	x - input of function
+%	a - beginning of interpolated range
+%	h - step size
+% OUTPUTS:
+% 	y - value described by schema
+
 	node = @(x) a + (h * x);
 
     y = 0;
